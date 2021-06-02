@@ -6,7 +6,7 @@ export default {
   head: {
     title: 'yumemi-kadai',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
@@ -36,6 +36,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
+
+  serverMiddleware: ['~/api'],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
