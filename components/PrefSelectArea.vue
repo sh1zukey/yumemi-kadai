@@ -28,11 +28,15 @@ export default {
   watch: {
     selectedPrefCodes() {
       this.setSelectedPrefCodes(this.selectedPrefCodes)
+      this.updatePrefPopulationData()
     },
   },
   methods: {
     ...mapMutations({
       setSelectedPrefCodes: 'setSelectedPrefCodes',
+    }),
+    ...mapActions({
+      updatePrefPopulationData: 'updatePrefPopulationData',
     }),
   },
 }
