@@ -2,6 +2,7 @@ export const state = () => ({
   prefData: [],
   selectedPrefCodes: [],
   prefPopulationData: {},
+  isLoading: false,
 })
 
 export const getters = {
@@ -14,6 +15,9 @@ export const getters = {
   prefPopulationData: (state) => {
     return state.prefPopulationData
   },
+  isLoading: (state) => {
+    return state.isLoading
+  },
 }
 
 export const mutations = {
@@ -25,6 +29,9 @@ export const mutations = {
   },
   setPrefPopulationData(state, prefPopulationData) {
     state.prefPopulationData = prefPopulationData
+  },
+  setLoading(state, isLoading) {
+    state.isLoading = isLoading
   },
 }
 
@@ -43,6 +50,8 @@ export const actions = {
     const prefPopulationData = state.prefPopulationData
     const promises = []
 
+    commit('setLoading', true)
+
     state.selectedPrefCodes.forEach((prefCode) => {
       if (!prefPopulationData[String(prefCode)]) {
         promises.push(this.$axios.get('/api/population/' + prefCode))
@@ -56,7 +65,8 @@ export const actions = {
     responses.forEach((response) => {
       const prefCode = response.config.url.split('/').slice(-1)[0]
       prefPopulationData[String(prefCode)] = response.data
-      commit('setPrefPopulationData', prefPopulationData)
     })
+    commit('setPrefPopulationData', prefPopulationData)
+    commit('setLoading', false)
   },
 }
