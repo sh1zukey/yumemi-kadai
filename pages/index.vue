@@ -1,63 +1,48 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">yumemi-kadai</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <header>
+      <h1 class="mt-0">課題</h1>
+    </header>
+    <main>
+      <div class="container">
+        <PrefSelectArea></PrefSelectArea>
+        <Chart></Chart>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapActions } from 'vuex'
+
+export default {
+  async fetch() {
+    await this.initPrefs()
+  },
+  methods: {
+    ...mapActions({
+      initPrefs: 'initPrefs',
+    }),
+  },
+}
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+header {
+  width: 100%;
+  background-color: #3b8070;
+
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.container {
+  width: 90%;
+
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.mt-0 {
+  margin-top: 0;
 }
 </style>
