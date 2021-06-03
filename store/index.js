@@ -5,6 +5,9 @@ export const state = () => ({
 })
 
 export const getters = {
+  prefData: (state) => {
+    return state.prefData
+  },
   selectedPrefCodes: (state) => {
     return state.selectedPrefCodes
   },

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations, mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -21,8 +21,8 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      prefData: (state) => state.prefData,
+    ...mapGetters({
+      prefData: 'prefData',
     }),
   },
   watch: {
