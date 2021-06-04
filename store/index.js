@@ -48,11 +48,12 @@ export const actions = {
   },
   async updatePrefPopulationData({ state, commit }) {
     const prefPopulationData = state.prefPopulationData
+    const selectedPrefCodes = state.selectedPrefCodes
     const promises = []
 
     commit('setLoading', true)
 
-    state.selectedPrefCodes.forEach((prefCode) => {
+    selectedPrefCodes.forEach((prefCode) => {
       if (!prefPopulationData[String(prefCode)]) {
         promises.push(this.$axios.get('/api/population/' + prefCode))
       }
