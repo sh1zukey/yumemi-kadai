@@ -37,7 +37,7 @@ export default {
     const debounce = require('lodash.debounce')
     this.debouncedUpdateChart = debounce(function () {
       this.updateChart()
-    }, 1000)
+    }, 500)
   },
   methods: {
     updateChart() {
