@@ -18,21 +18,24 @@ export default {
         title: {
           text: '人工推移',
         },
+        subtitle: {
+          text: 'Source: RESAS - 地域経済分析システム',
+        },
         xAxis: {
           title: {
             text: '年度',
           },
-          categories: [],
-          crosshair: true, // マウスを当てると線が出て、数値が分かりやすくなる
+          categories: [], // 横軸
+          crosshair: true,
         },
         yAxis: {
           title: {
             text: '人口数',
           },
           labels: {
-            format: '{value}', // y軸の目盛り幅が値によって動的に変わる
+            format: '{value}',
           },
-          opposite: true, // 右側のy軸とする
+          opposite: true,
         },
         plotOptions: {
           line: {
@@ -42,7 +45,7 @@ export default {
             enableMouseTracking: false,
           },
         },
-        series: [],
+        series: [], // データ本体
       },
     }
   },
