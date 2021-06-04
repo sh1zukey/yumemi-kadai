@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 header {
   width: 100%;
   background-color: #3b8070;
@@ -37,7 +37,7 @@ header {
   text-align: center;
 }
 
-.container {
+main .container {
   width: 90%;
 
   margin-right: auto;
