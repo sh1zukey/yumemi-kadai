@@ -66,13 +66,6 @@ export default {
           this.populationChartOptions.xAxis.categories = []
           this.populationChartOptions.series = []
         } else if (this.selectedPrefCodes.length > 0) {
-          // 取得済みデータから実際に表示するデータを抽出する
-          const showPrefData = {}
-          this.selectedPrefCodes.forEach((prefCode) => {
-            showPrefData[String(prefCode)] =
-              this.prefPopulationData[String(prefCode)]
-          })
-
           // すべてのデータで同一の可能性があるのでX軸の結合の実装はしない
           // let xAxis = []
           // for (const key in showPrefData) {
@@ -84,21 +77,26 @@ export default {
           // console.log(xAxis)
 
           // 選択された一番最初の都道府県のyearをX軸にする
-          const xAxis = showPrefData[this.selectedPrefCodes[0]].map((data) => {
+          const xAxis = this.prefPopulationData[
+            String(this.selectedPrefCodes[0])
+          ].map((data) => {
             return data.year
           })
 
           // グラフ表示用のデータを作る
           const seriesData = []
-          for (const key in showPrefData) {
-            const data = showPrefData[key].map((data) => {
-              return data.value
-            })
-            const prefData = this.prefData.find(
-              (pref) => pref.prefCode === Number(key)
+          this.selectedPrefCodes.forEach((prefCode) => {
+            const value = this.prefPopulationData[String(prefCode)].map(
+              (data) => {
+                return data.value
+              }
             )
-            seriesData.push({ name: prefData.prefName, data })
-          }
+
+            const prefData = this.prefData.find(
+              (pref) => pref.prefCode === Number(prefCode)
+            )
+            seriesData.push({ name: prefData.prefName, data: value })
+          })
 
           // グラフに反映
           this.populationChartOptions.xAxis.categories = xAxis
