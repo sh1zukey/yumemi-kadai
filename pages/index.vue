@@ -5,8 +5,8 @@
     </header>
     <main>
       <div class="container">
-        <PrefSelectArea></PrefSelectArea>
-        <Chart></Chart>
+        <PrefSelectArea />
+        <Chart />
       </div>
     </main>
   </div>
