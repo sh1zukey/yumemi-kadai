@@ -58,7 +58,7 @@ export default {
 .checkbox-container {
   display: grid;
 
-  grid-auto-rows: 30px;
-  grid-template-columns: repeat(auto-fit, 100px);
+  grid-auto-rows: 28px;
+  grid-template-columns: repeat(auto-fit, 90px);
 }
 </style>
