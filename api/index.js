@@ -5,6 +5,7 @@ const resasApi = axios.create({
   baseURL: 'https://opendata.resas-portal.go.jp/api/v1',
   headers: {
     'Content-Type': 'application/json',
+    // RESASのAPIキーを環境変数から読み込む
     'X-API-KEY': process.env.APIKEY,
   },
   responseType: 'json',

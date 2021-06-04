@@ -1,20 +1,17 @@
 # yumemi-kadai
 
-## Build Setup
+## 主な使用フレームワーク、ライブラリ
+- Nuxt.js
+- express (serverMiddleware)
+- highcharts
 
-```bash
-# install dependencies
-$ yarn install
+## ファイル構成
+- pages/index.vue：トップページ
+- components/PrefSelectArea.vue：都道府県選択のチェックボックス
+- components/Chart.vue：グラフ本体
+- assets/css/style.css：共通のスタイルが記述されたCSSファイル
+- store/index.js：vuex store
+- api/index.js：API、serverMiddleware機能を用いて動作
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## 環境変数
+- APIKEY：RESASのAPIキー
