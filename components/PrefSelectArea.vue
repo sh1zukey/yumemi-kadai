@@ -27,11 +27,20 @@ export default {
   },
   watch: {
     selectedPrefCodes() {
+      this.debouncedUpdateChart()
+    },
+  },
+  created() {
+    const debounce = require('lodash.debounce')
+    this.debouncedUpdateChart = debounce(function () {
+      this.updateChart()
+    }, 500)
+  },
+  methods: {
+    updateChart() {
       this.setSelectedPrefCodes(this.selectedPrefCodes)
       this.updatePrefPopulationData()
     },
-  },
-  methods: {
     ...mapMutations({
       setSelectedPrefCodes: 'setSelectedPrefCodes',
     }),
