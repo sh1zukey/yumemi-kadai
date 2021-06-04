@@ -2,7 +2,7 @@ export const state = () => ({
   prefData: [],
   selectedPrefCodes: [],
   prefPopulationData: {},
-  isLoading: false,
+  drawPrefCodes: [],
 })
 
 export const getters = {
@@ -15,8 +15,8 @@ export const getters = {
   prefPopulationData: (state) => {
     return state.prefPopulationData
   },
-  isLoading: (state) => {
-    return state.isLoading
+  drawPrefCodes: (state) => {
+    return state.drawPrefCodes
   },
 }
 
@@ -30,8 +30,8 @@ export const mutations = {
   setPrefPopulationData(state, prefPopulationData) {
     state.prefPopulationData = prefPopulationData
   },
-  setLoading(state, isLoading) {
-    state.isLoading = isLoading
+  setDrawPrefCodes(state, drawPrefCodes) {
+    state.drawPrefCodes = drawPrefCodes
   },
 }
 
@@ -51,7 +51,7 @@ export const actions = {
     const selectedPrefCodes = state.selectedPrefCodes
     const promises = []
 
-    commit('setLoading', true)
+    commit('setDrawPrefCodes', [])
 
     selectedPrefCodes.forEach((prefCode) => {
       if (!prefPopulationData[String(prefCode)]) {
@@ -68,6 +68,6 @@ export const actions = {
       prefPopulationData[String(prefCode)] = response.data
     })
     commit('setPrefPopulationData', prefPopulationData)
-    commit('setLoading', false)
+    commit('setDrawPrefCodes', selectedPrefCodes)
   },
 }
