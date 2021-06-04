@@ -1,5 +1,8 @@
 <template>
-  <highchart :options="populationChartOptions" />
+  <div>
+    <h1 class="mb-0">グラフ</h1>
+    <highchart :options="populationChartOptions" />
+  </div>
 </template>
 
 <script>
