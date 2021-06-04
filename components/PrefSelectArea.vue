@@ -34,6 +34,7 @@ export default {
     },
   },
   created() {
+    // lodashのdebounce機能を用いて処理回数を間引きする
     const debounce = require('lodash.debounce')
     this.debouncedUpdateChart = debounce(function () {
       this.updateChart()

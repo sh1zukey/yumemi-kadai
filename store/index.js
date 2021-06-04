@@ -1,7 +1,11 @@
 export const state = () => ({
+  // 都道府県データ
   prefData: [],
+  // 現在選択している都道府県
   selectedPrefCodes: [],
+  // 都道府県ごとの人口数データ
   prefPopulationData: {},
+  // 描画する都道府県
   drawPrefCodes: [],
 })
 
@@ -36,6 +40,7 @@ export const mutations = {
 }
 
 export const actions = {
+  // 都道府県データを取得する
   async initPrefs({ commit }) {
     const response = await this.$axios
       .get('/api/prefectures')
@@ -46,6 +51,8 @@ export const actions = {
       commit('setPrefs', response.data)
     }
   },
+  // 選択された都道府県データを取得する
+  // 尚取得済みのデータは再取得しない
   async updatePrefPopulationData({ state, commit }) {
     const prefPopulationData = state.prefPopulationData
     const selectedPrefCodes = state.selectedPrefCodes
