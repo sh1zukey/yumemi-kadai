@@ -14,6 +14,7 @@ export default {
       populationChartOptions: {
         chart: {
           type: 'line',
+          height: '700px',
         },
         title: {
           text: '人工推移',
