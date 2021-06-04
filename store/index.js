@@ -51,8 +51,6 @@ export const actions = {
     const selectedPrefCodes = state.selectedPrefCodes
     const promises = []
 
-    commit('setDrawPrefCodes', [])
-
     selectedPrefCodes.forEach((prefCode) => {
       if (!prefPopulationData[String(prefCode)]) {
         promises.push(this.$axios.get('/api/population/' + prefCode))
