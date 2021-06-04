@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1 class="mt-0">課題</h1>
+      <h1 class="my-0">課題</h1>
     </header>
     <main>
       <div class="container">
@@ -32,6 +32,8 @@ header {
   width: 100%;
   background-color: #3b8070;
 
+  margin-bottom: 1rem;
+
   text-align: center;
 }
 
@@ -40,9 +42,5 @@ header {
 
   margin-right: auto;
   margin-left: auto;
-}
-
-.mt-0 {
-  margin-top: 0;
 }
 </style>
