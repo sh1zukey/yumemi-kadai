@@ -91,9 +91,12 @@ export default {
             }
           )
 
+          // 県コードから県名を取得する
           const prefData = this.prefData.find(
             (pref) => pref.prefCode === Number(prefCode)
           )
+
+          // グラフデータを挿入
           seriesData.push({ name: prefData.prefName, data: value })
         })
 

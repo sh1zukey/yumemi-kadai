@@ -43,7 +43,9 @@ export default {
   },
   methods: {
     updateChart() {
+      // 選択された都道府県の一覧をstoreに反映する
       this.setSelectedPrefCodes(this.selectedPrefCodes)
+      // 都道府県ごとの人口データを取得する
       this.updatePrefPopulationData()
     },
     ...mapMutations({

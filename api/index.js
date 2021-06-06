@@ -34,6 +34,7 @@ app.get('/population/:prefCode', (req, res) => {
       params: { prefCode: req.params.prefCode, cityCode: '-' },
     })
     .then(function (response) {
+      // 総人口のみを抽出する
       const result = response.data.result.data.find(
         (item) => item.label === '総人口'
       )

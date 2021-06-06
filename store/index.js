@@ -64,15 +64,19 @@ export const actions = {
       }
     })
 
+    // 上段で新たに取得する都道府県のpromiseオブジェクトを作りリストに入れ、並列で取得する
     const responses = await Promise.all(promises)
       .then((responses) => responses)
       .catch((error) => error.response)
 
+    // 県名コードとデータを連想配列で管理する
     responses.forEach((response) => {
       const prefCode = response.config.url.split('/').slice(-1)[0]
       prefPopulationData[String(prefCode)] = response.data
     })
+    // 都道府県ごとの人口データをstoreに反映
     commit('setPrefPopulationData', prefPopulationData)
+    // 今から描画すべき都道府県をstoreに反映
     commit('setDrawPrefCodes', selectedPrefCodes)
   },
 }
