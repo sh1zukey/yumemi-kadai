@@ -2,14 +2,15 @@
   <div>
     <h1 class="my-0">都道府県</h1>
     <div class="checkbox-container">
-      <div v-for="(pref, index) in prefData" :key="index">
-        <input
-          :id="index"
-          v-model="selectedPrefCodes"
-          :value="pref.prefCode"
-          type="checkbox"
-        />
-        <label>{{ pref.prefName }}</label>
+      <div v-for="(pref, index) in prefData" :key="index" class="checkbox">
+        <label
+          ><input
+            :id="index"
+            v-model="selectedPrefCodes"
+            :value="pref.prefCode"
+            type="checkbox"
+          />{{ pref.prefName }}</label
+        >
       </div>
     </div>
   </div>
@@ -61,5 +62,9 @@ export default {
 
   grid-auto-rows: 28px;
   grid-template-columns: repeat(auto-fit, 90px);
+}
+
+.checkbox input {
+  margin-right: 0.1rem;
 }
 </style>
